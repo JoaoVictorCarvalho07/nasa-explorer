@@ -53,7 +53,7 @@ export default function CatalogoScreen({ navigation }: Props) {
             <ErrorView message={erro} onRetry={tentarNovamente} />
           ) : carregando ? (
             <ActivityIndicator style={{ margin: 16 }} color={cores.primaria} accessibilityLabel="Carregando mais" />
-          ) : null
+          ) : undefined
         }
       />
     </View>

@@ -59,7 +59,7 @@ export default function BuscaScreen({ navigation }: Props) {
           data={resultados}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => <ItemLinha item={item} onPress={() => navigation.navigate('Detalhe', { id: item.id })} />}
-          ListEmptyComponent={buscou ? <EmptyView message={`Nenhum resultado para "${termo}".`} /> : null}
+          ListEmptyComponent={buscou ? <EmptyView message={`Nenhum resultado para "${termo}".`} /> : undefined}
         />
       )}
     </View>

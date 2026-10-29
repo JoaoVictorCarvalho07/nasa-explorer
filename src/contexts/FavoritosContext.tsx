@@ -23,7 +23,11 @@ export function FavoritosProvider({ children }: { children: React.ReactNode }) {
   const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
-    if (!usuario) return;
+    if (!usuario) {
+      setFavoritos([]);
+      setVistos([]);
+      return;
+    }
     let ativo = true;
     setCarregando(true);
     Promise.all([dados.carregarFavoritos(usuario.id), dados.carregarVistos(usuario.id)])
