@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from 'react';
-import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ItemCard } from '../components/ItemCard';
 import { ErrorView, LoadingView } from '../components/StateViews';
@@ -15,6 +15,8 @@ export default function CatalogoScreen({ navigation }: Props) {
   const { itens, carregando, atualizando, erro, proximaPagina, atualizar, tentarNovamente } = useCatalogo('galaxy');
   const { ehFavorito } = useFavoritos();
   const { sair } = useAuth();
+  const { width } = useWindowDimensions();
+  const colunas = width < 600 ? 2 : width < 900 ? 3 : 4;
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -39,8 +41,9 @@ export default function CatalogoScreen({ navigation }: Props) {
       <FlatList
         data={itens}
         keyExtractor={(item) => item.id}
-        numColumns={2}
-        contentContainerStyle={{ padding: 6, width: '100%', maxWidth: 720, alignSelf: 'center' }}
+        key={colunas}
+        numColumns={colunas}
+        contentContainerStyle={{ padding: 6, width: '100%', maxWidth: 1100, alignSelf: 'center' }}
         renderItem={({ item }) => (
           <ItemCard item={item} favorito={ehFavorito(item.id)} onPress={() => navigation.navigate('Detalhe', { id: item.id })} />
         )}
@@ -70,7 +73,7 @@ function BotaoMenu({ texto, onPress }: { texto: string; onPress: () => void }) {
 
 const s = StyleSheet.create({
   tela: { flex: 1, backgroundColor: cores.fundo },
-  menu: { flexDirection: 'row', gap: 8, padding: 12, paddingBottom: 0, width: '100%', maxWidth: 720, alignSelf: 'center' },
+  menu: { flexDirection: 'row', gap: 8, padding: 12, paddingBottom: 0, width: '100%', maxWidth: 1100, alignSelf: 'center' },
   botao: { flex: 1, backgroundColor: cores.card, borderRadius: 8, paddingVertical: 12, alignItems: 'center', minHeight: 44, borderWidth: 1, borderColor: cores.borda },
   botaoTexto: { color: cores.texto, fontWeight: '600' },
 });
