@@ -1,4 +1,3 @@
-import React from 'react';
 import { Pressable, Text, View } from 'react-native';
 
 type Props = { nota: number; onChange?: (n: number) => void };

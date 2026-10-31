@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import * as dados from '../services/dados';
 import { NasaItem } from '../services/nasa';
 import { useAuth } from './AuthContext';

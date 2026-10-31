@@ -22,7 +22,7 @@ export function useCatalogo(termo: string) {
         });
         setPagina(p);
         setTemMais(res.temMais);
-      } catch (e) {
+      } catch {
         setErro('Não foi possível carregar as imagens. Verifique sua conexão.');
       } finally {
         setCarregando(false);
