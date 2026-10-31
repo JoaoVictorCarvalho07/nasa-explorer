@@ -20,7 +20,7 @@ export default function VistosScreen({ navigation }: Props) {
       <FlatList
         data={vistos}
         keyExtractor={(item) => item.id}
-        contentContainerStyle={{ paddingVertical: 8, flexGrow: 1 }}
+        contentContainerStyle={{ paddingVertical: 8, flexGrow: 1, width: '100%', maxWidth: 720, alignSelf: 'center' }}
         renderItem={({ item }) => (
           <ItemLinha item={item} onPress={() => navigation.navigate('Detalhe', { id: item.id })}>
             <Estrelas nota={item.nota} />

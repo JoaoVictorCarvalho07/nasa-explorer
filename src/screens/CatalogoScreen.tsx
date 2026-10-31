@@ -40,7 +40,7 @@ export default function CatalogoScreen({ navigation }: Props) {
         data={itens}
         keyExtractor={(item) => item.id}
         numColumns={2}
-        contentContainerStyle={{ padding: 6 }}
+        contentContainerStyle={{ padding: 6, width: '100%', maxWidth: 720, alignSelf: 'center' }}
         renderItem={({ item }) => (
           <ItemCard item={item} favorito={ehFavorito(item.id)} onPress={() => navigation.navigate('Detalhe', { id: item.id })} />
         )}
@@ -70,7 +70,7 @@ function BotaoMenu({ texto, onPress }: { texto: string; onPress: () => void }) {
 
 const s = StyleSheet.create({
   tela: { flex: 1, backgroundColor: cores.fundo },
-  menu: { flexDirection: 'row', gap: 8, padding: 12, paddingBottom: 0 },
+  menu: { flexDirection: 'row', gap: 8, padding: 12, paddingBottom: 0, width: '100%', maxWidth: 720, alignSelf: 'center' },
   botao: { flex: 1, backgroundColor: cores.card, borderRadius: 8, paddingVertical: 12, alignItems: 'center', minHeight: 44, borderWidth: 1, borderColor: cores.borda },
   botaoTexto: { color: cores.texto, fontWeight: '600' },
 });

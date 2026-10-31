@@ -42,7 +42,7 @@ export default function DetalheScreen({ route, navigation }: Props) {
   const nota = notaDe(item.id);
 
   return (
-    <ScrollView style={s.tela} contentContainerStyle={{ paddingBottom: 32 }}>
+    <ScrollView style={s.tela} contentContainerStyle={{ paddingBottom: 32, width: '100%', maxWidth: 720, alignSelf: 'center' }}>
       {item.imagemGrande ? (
         <Image source={{ uri: item.imagemGrande }} style={s.img} resizeMode="contain"
           accessible accessibilityRole="image" accessibilityLabel={`Imagem: ${item.titulo}`} />

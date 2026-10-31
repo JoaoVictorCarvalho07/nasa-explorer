@@ -20,7 +20,7 @@ export default function FavoritosScreen({ navigation }: Props) {
         data={favoritos}
         keyExtractor={(item) => item.id}
         numColumns={2}
-        contentContainerStyle={{ padding: 6, flexGrow: 1 }}
+        contentContainerStyle={{ padding: 6, flexGrow: 1, width: '100%', maxWidth: 720, alignSelf: 'center' }}
         renderItem={({ item }) => (
           <ItemCard item={item} favorito onPress={() => navigation.navigate('Detalhe', { id: item.id })} />
         )}

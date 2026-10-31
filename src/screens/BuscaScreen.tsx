@@ -58,6 +58,7 @@ export default function BuscaScreen({ navigation }: Props) {
         <FlatList
           data={resultados}
           keyExtractor={(item) => item.id}
+          contentContainerStyle={{ width: '100%', maxWidth: 720, alignSelf: 'center' }}
           renderItem={({ item }) => <ItemLinha item={item} onPress={() => navigation.navigate('Detalhe', { id: item.id })} />}
           ListEmptyComponent={buscou ? <EmptyView message={`Nenhum resultado para "${termo}".`} /> : undefined}
         />
@@ -68,7 +69,7 @@ export default function BuscaScreen({ navigation }: Props) {
 
 const s = StyleSheet.create({
   tela: { flex: 1, backgroundColor: cores.fundo },
-  barra: { flexDirection: 'row', gap: 8, padding: 12 },
+  barra: { flexDirection: 'row', gap: 8, padding: 12, width: '100%', maxWidth: 720, alignSelf: 'center' },
   input: { flex: 1, backgroundColor: cores.card, color: cores.texto, borderRadius: 8, paddingHorizontal: 12, minHeight: 44, borderWidth: 1, borderColor: cores.borda },
   botao: { backgroundColor: cores.primaria, borderRadius: 8, paddingHorizontal: 16, justifyContent: 'center', minHeight: 44 },
   botaoTexto: { color: '#000', fontWeight: '700' },
