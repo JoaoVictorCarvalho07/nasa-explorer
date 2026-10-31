@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ActivityIndicator, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput } from 'react-native';
 import { cores } from '../components/theme';
 import { useAuth } from '../contexts/AuthContext';
-import { usaNuvem } from '../services/supabase';
 
 export default function LoginScreen() {
   const { entrar, cadastrar } = useAuth();
@@ -70,14 +69,13 @@ export default function LoginScreen() {
           <Text style={s.linkTexto}>{modoCadastro ? 'Já tenho conta' : 'Não tem conta? Cadastre-se'}</Text>
         </Pressable>
 
-        <Text style={s.modo}>{usaNuvem ? 'Conta na nuvem (Supabase)' : 'Modo local (dados só neste aparelho)'}</Text>
       </ScrollView>
     </KeyboardAvoidingView>
   );
 }
 
 const s = StyleSheet.create({
-  container: { flexGrow: 1, justifyContent: 'center', padding: 24, gap: 12 },
+  container: { flexGrow: 1, justifyContent: 'center', padding: 24, gap: 12, width: '100%', maxWidth: 420, alignSelf: 'center' },
   logo: { color: cores.texto, fontSize: 32, fontWeight: '800', textAlign: 'center' },
   sub: { color: cores.textoFraco, textAlign: 'center', marginBottom: 12 },
   input: { backgroundColor: cores.card, color: cores.texto, borderRadius: 8, padding: 14, borderWidth: 1, borderColor: cores.borda },
@@ -86,5 +84,4 @@ const s = StyleSheet.create({
   botaoTexto: { color: '#000', fontWeight: '700', fontSize: 16 },
   link: { padding: 12, alignItems: 'center' },
   linkTexto: { color: cores.primaria },
-  modo: { color: cores.textoFraco, textAlign: 'center', fontSize: 12, marginTop: 16 },
 });
